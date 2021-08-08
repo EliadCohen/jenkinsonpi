@@ -1,0 +1,16 @@
+version: '3'
+services:
+  jenkins:
+    container_name: jenk
+    image: homejenkins
+    tty: true
+    ports: 
+      - "8080:8080"
+    volumes:
+      - "$PWD/jenkins_home:/var/jenkins_home"
+    networks:
+      - net
+
+networks:
+  net:
+ 
