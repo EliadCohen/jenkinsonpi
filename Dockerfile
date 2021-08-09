@@ -7,6 +7,12 @@ RUN apt update -y && apt install -y gnupg wget openjdk-11-jre && \
     apt update && \
     apt install jenkins -y && \
     service jenkins start && \
-    cat /var/lib/jenkins/secrets/initialAdminPassword
+    touch start.sh && \
+    chmod +x start.sh
 
-# CMD tail -f /dev/null 
+RUN echo '\
+#!/bin/bash\n\
+service jenkins start\n\
+tail -F anything\n\
+' > start.sh
+
