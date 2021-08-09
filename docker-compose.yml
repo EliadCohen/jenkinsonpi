@@ -3,11 +3,11 @@ services:
   jenkins:
     container_name: jenk
     image: homejenkins
-    tty: true
+    command: bash start.sh
     ports: 
       - "8080:8080"
     volumes:
-      - "$PWD/jenkins_home:/var/jenkins_home"
+      - "./jenkins_home:/var/jenkins_home"
     networks:
       - net
 
